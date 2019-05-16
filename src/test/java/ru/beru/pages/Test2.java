@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import ru.beru.pages.HomePage;
-import ru.beru.pages.WebDriverSettings;
 
 import static ru.beru.pages.HomePage.authorization;
 import static ru.beru.pages.HomePage.changeCity;
