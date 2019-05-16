@@ -7,10 +7,10 @@
     </test>
     <test name="CityChangeTest">
         <classes>
-            <class name="ru.beru.pages.Test2"/>
+            <class name="ru.beru.pages.Test2" />
         </classes>
     </test>
-    <test name="PickAndPurchaseTest">
+    <test name="PickAndPurchaseTes ">
         <classes>
             <class name="ru.beru.pages.Test3" />
         </classes>
