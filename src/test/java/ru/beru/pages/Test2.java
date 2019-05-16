@@ -1,23 +1,36 @@
-package ru.beru.tests;
+package ru.beru.pages;
 
-import org.junit.Test;
 import org.openqa.selenium.By;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 import ru.beru.pages.HomePage;
 import ru.beru.pages.WebDriverSettings;
 
 import static ru.beru.pages.HomePage.authorization;
 import static ru.beru.pages.HomePage.changeCity;
 
+@Listeners(FailListener.class)
 public class Test2 extends WebDriverSettings {
 
-    @Test
-    public void checkCity() throws InterruptedException {
+    @DataProvider(name="SearchProvider")
+    public Object[][] getDataFromDataprovider(){
+        return new Object[][]
+                {
+                        { "Хвалынск" },
+                        { "Москва" },
+                        { "Самара" }
+                };
+    }
+
+    @Test(dataProvider="SearchProvider")
+    public void checkCity(String city) throws InterruptedException {
         buttonClickBySelector(".link_pseudo_yes");
-        changeCity("Саратов");
+        changeCity(city);
         waitInvisibilityOf(By.cssSelector(".header2-region-popup"));
         authorization();
         moveToElement(".header2-nav__user");
         buttonClickByText("Мои адреса доставки");
-        HomePage.checkCity("Саратов");
+        HomePage.checkCity(city);
     }
 }
